@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        git branch: 'main', url: 'https://github.com/chawongr/Jenkins-SDPX/tree/main'
+        git branch: 'main', url: 'https://github.com/chawongr/jenkins-sdpx'
         sh 'whoami'
       }
     }
@@ -35,12 +35,12 @@ pipeline {
     }
     stage('Building Image ️') {
       steps {
-        sh 'docker build -t chawongr/Jenkins-SDPX:lastest .'
+        sh 'docker build -t chawongr/jenkins-sdpx:lastest .'
       }
     }
     stage('Push ⬆️') {
       steps {
-        sh 'docker push chawongr/Jenkins-SDPX:lastest'
+        sh 'docker push chawongr/jenkins-sdpx:lastest'
       }
     }
     stage('Clean Workspace') {
