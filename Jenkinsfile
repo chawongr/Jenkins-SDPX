@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        git branch: 'main', url: 'https://github.com/softdev-practice-kmitl/Jenkins_Assignment.git'
+        git branch: 'main', url: 'https://github.com/chawongr/Jenkins-SDPX/tree/main'
         sh 'whoami'
       }
     }
@@ -35,12 +35,12 @@ pipeline {
     }
     stage('Building Image ️') {
       steps {
-        sh 'docker build -t cheiby/jenkins-assingment:lastest .'
+        sh 'docker build -t chawongr/Jenkins-SDPX:lastest .'
       }
     }
     stage('Push ⬆️') {
       steps {
-        sh 'docker push cheiby/jenkins-assingment:lastest'
+        sh 'docker push chawongr/Jenkins-SDPX:lastest'
       }
     }
     stage('Clean Workspace') {
