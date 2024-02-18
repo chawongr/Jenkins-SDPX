@@ -35,7 +35,7 @@ pipeline {
     }
     stage('Building Image ️') {
       steps {
-        sh 'docker build -t chawongr/jenkins-sdpx:lastest .'
+        sh 'docker build -t chawongr/jenkins-sdpx:lastest'
       }
     }
     stage('Push ⬆️') {
