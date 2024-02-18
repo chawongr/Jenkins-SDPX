@@ -35,12 +35,12 @@ pipeline {
     }
     stage('Building Image ️') {
       steps {
-        sh 'docker build -t chawongr/jenkins-sdpx:lastest .'
+        sh 'docker build -t chawong/jenkins-sdpx:lastest .'
       }
     }
     stage('Push ⬆️') {
       steps {
-        sh 'docker push chawongr/jenkins-sdpx:lastest'
+        sh 'docker push chawong/jenkins-sdpx:lastest'
       }
     }
     stage('Clean Workspace') {
