@@ -1,15 +1,15 @@
-const { plusHandler } = require('./index'); // Import your Express route handler function
+const { plusHandler, primeNumber } = require("./index");
 
-describe('Plus endpoint handler', () => {
-  test('returns the sum of two numbers passed in parameters', () => {
+describe("Plus endpoint handler", () => {
+  test("returns the sum of two numbers passed in parameters", () => {
     const req = {
       params: {
-        num1: '5',
-        num2: '10'
-      }
+        num1: "5",
+        num2: "10",
+      },
     };
     const res = {
-      json: jest.fn()
+      json: jest.fn(),
     };
 
     plusHandler(req, res);
@@ -17,18 +17,50 @@ describe('Plus endpoint handler', () => {
     expect(res.json).toHaveBeenCalledWith(15);
   });
 
-  test('returns NaN if parameters are not valid numbers', () => {
+  test("returns NaN if parameters are not valid numbers", () => {
     const req = {
       params: {
-        num1: 'abc',
-        num2: 'def'
-      }
+        num1: "abc",
+        num2: "def",
+      },
     };
     const res = {
-      json: jest.fn()
+      json: jest.fn(),
     };
 
     plusHandler(req, res);
+
+    expect(res.json).toHaveBeenCalledWith(NaN);
+  });
+});
+
+
+describe("Prime handler", () => {
+  test("return the prime passed in params", () => {
+    const req = {
+      params: {
+        num: 17
+      },
+    };
+    const res = {
+      json: jest.fn(),
+    };
+    primeNumber(req, res);
+
+    expect(res.json).toHaveBeenCalledWith(true);
+  });
+
+  test("return Nan if params are not valid number", () => {
+    const req = {
+      params: {
+        num: "asd",
+      },
+    };
+    const res = {
+      json: jest.fn(),
+    };
+
+    primeNumber(req, res);
 
     expect(res.json).toHaveBeenCalledWith(NaN);
   });
